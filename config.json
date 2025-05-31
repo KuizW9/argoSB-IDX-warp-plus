@@ -13,9 +13,34 @@
           "outbound": "direct"
         },
         {
-          "auth_user": "vmess-warp",
+          "auth_user": "vmess-au",
+          "action": "route",
+          "outbound": "warp-au"
+        },
+        {
+          "auth_user": "vmess-uk",
+          "action": "route",
+          "outbound": "warp-uk"
+        },
+        {
+          "auth_user": "vmess-us",
+          "action": "route",
+          "outbound": "warp-us"
+        },
+        {
+          "auth_user": "vmess-jp",
           "action": "route",
           "outbound": "warp-jp"
+        },
+        {
+          "auth_user": "vmess-sg",
+          "action": "route",
+          "outbound": "warp-sg"
+        },
+        {
+          "auth_user": "vmess-nm",
+          "action": "route",
+          "outbound": "warp-hk"
         }
       ]
     },
@@ -32,28 +57,33 @@
             "alterId": 0
           },
           {
-            "name":"vmess-warp",
+            "name":"vmess-jp",
             "uuid": "a8cc3f99-77ac-49fc-a790-fa1ef19fe0bf",
             "alterId": 0
           },
           {
-            "name":"vmess-uk",
+            "name":"vmess-au",
             "uuid": "b8cc3f99-77ac-49fc-a790-fa1ef19fe0bf",
             "alterId": 0
           },
           {
-            "name":"vmess-us",
+            "name":"vmess-uk",
             "uuid": "c8cc3f99-77ac-49fc-a790-fa1ef19fe0bf",
             "alterId": 0
           },
           {
-            "name":"vmess-sg",
+            "name":"vmess-us",
             "uuid": "d8cc3f99-77ac-49fc-a790-fa1ef19fe0bf",
             "alterId": 0
           },
           {
-            "name":"vmess-jp",
+            "name":"vmess-sg",
             "uuid": "e8cc3f99-77ac-49fc-a790-fa1ef19fe0bf",
+            "alterId": 0
+          },
+          {
+            "name":"vmess-nm",
+            "uuid": "f8cc3f99-77ac-49fc-a790-fa1ef19fe0bf",
             "alterId": 0
           }
         ],
@@ -89,7 +119,7 @@
         "type": "socks",
         "tag":"warp-jp",
         "server": "127.0.0.1",
-        "server_port": 1080,
+        "server_port": 54322,
         "version": "5",
         "username": "",
         "password": ""
@@ -98,7 +128,7 @@
         "type": "socks",
         "tag":"warp-au",
         "server": "127.0.0.1",
-        "server_port": 1081,
+        "server_port": 54323,
         "version": "5",
         "username": "",
         "password": ""
@@ -107,7 +137,7 @@
         "type": "socks",
         "tag": "warp-uk",
         "server": "127.0.0.1",
-        "server_port": 1082,
+        "server_port": 54324,
         "version": "5",
         "username": "",
         "password": ""
@@ -116,7 +146,25 @@
         "type": "socks",
         "tag": "warp-us",
         "server": "127.0.0.1",
-        "server_port": 1083,
+        "server_port": 54325,
+        "version": "5",
+        "username": "",
+        "password": ""
+      },
+      {
+        "type": "socks",
+        "tag": "warp-sg",
+        "server": "127.0.0.1",
+        "server_port": 54326,
+        "version": "5",
+        "username": "",
+        "password": ""
+      },
+      {
+        "type": "socks",
+        "tag": "warp-hk",
+        "server": "127.0.0.1",
+        "server_port": 54327,
         "version": "5",
         "username": "",
         "password": ""
