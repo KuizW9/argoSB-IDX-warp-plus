@@ -6,16 +6,18 @@ tunnel --no-autoupdate --edge-ip-version auto --protocol http2 run --token eyJhI
 
 
 chmod +x ./warp-plus 
-
 cp ./warp-plus ./warp-plus1
 cp ./warp-plus ./warp-plus2
 cp ./warp-plus ./warp-plus3
 cp ./warp-plus ./warp-plus4
 cp ./warp-plus ./warp-plus5
 
-nohup ./warp-plus1 --bind 127.0.0.1:1080 --cfon --country JP >/dev/null 2>&1 & echo "$!" > ./sbpid1.log
-nohup ./warp-plus2 --bind 127.0.0.1:1081 --cfon --country AU >/dev/null 2>&1 & echo "$!" > ./sbpid2.log
-nohup ./warp-plus3 --bind 127.0.0.1:1082 --cfon --country GB >/dev/null 2>&1 & echo "$!" > ./sbpid3.log
-nohup ./warp-plus4 --bind 127.0.0.1:1083 --cfon --country US >/dev/null 2>&1 & echo "$!" > ./sbpid4.log
-nohup ./warp-plus5 --bind 127.0.0.1:1084 --cfon --country SG >/dev/null 2>&1 & echo "$!" > ./sbpid5.log
+nohup ./cloudflared tunnel --no-autoupdate --edge-ip-version auto --protocol http2 run --token eyJhIjoiNjQ1MTEzYmM3MWQ0MDgwMzA2ZmFmMWJhMmYyZmM4MGEiLCJ0IjoiNTU3NGY4ZTEtYmQzMS00MmY2LWIxYTYtZWFkOTE2ODNmMjhjIiwicyI6Ik9USmtOMk0yT1RBdE16TTNOUzAwTm1VeExUZzFZall0T0RobU1HVXdZMkU0T0dJeSJ9  >/dev/null 2>&1 & echo "$!" > ./cfpid.log
+nohup ./sing-box run  >/dev/null 2>&1 & echo "$!" > ./sbpid.log
+nohup ./warp-plus --bind 127.0.0.1:54322 --cfon --country JP >/dev/null 2>&1 & echo "$!" > ./wppid1.log
+nohup ./warp-plus --bind 127.0.0.1:54323 --cfon --country JP >/dev/null 2>&1 & echo "$!" > ./wppid2.log
+nohup ./warp-plus --bind 127.0.0.1:54324 --cfon --country JP >/dev/null 2>&1 & echo "$!" > ./wppid3.log
+nohup ./warp-plus --bind 127.0.0.1:54325 --cfon --country JP >/dev/null 2>&1 & echo "$!" > ./wppid4.log
+nohup ./warp-plus --bind 127.0.0.1:54326 --cfon --country JP >/dev/null 2>&1 & echo "$!" > ./wppid5.log
+
 
