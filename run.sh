@@ -14,18 +14,17 @@ cp ./warp-plus ./warp-plus5
 
 nohup ./cloudflared tunnel --no-autoupdate --edge-ip-version auto --protocol http2 run --token eyJhIjoiNjQ1MTEzYmM3MWQ0MDgwMzA2ZmFmMWJhMmYyZmM4MGEiLCJ0IjoiNTU3NGY4ZTEtYmQzMS00MmY2LWIxYTYtZWFkOTE2ODNmMjhjIiwicyI6Ik9USmtOMk0yT1RBdE16TTNOUzAwTm1VeExUZzFZall0T0RobU1HVXdZMkU0T0dJeSJ9  >/dev/null 2>&1 & echo "$!" > ./cfpid.log
 nohup ./sing-box run  >/dev/null 2>&1 & echo "$!" > ./sbpid.log
-nohup ./warp-plus1 --bind 127.0.0.1:54322 --cfon --country JP >/dev/null 2>&1 & echo "$!" > ./wppid1.log
-nohup ./warp-plus2 --bind 127.0.0.1:54323 --cfon --country AU >/dev/null 2>&1 & echo "$!" > ./wppid2.log
-nohup ./warp-plus3 --bind 127.0.0.1:54324 --cfon --country GB >/dev/null 2>&1 & echo "$!" > ./wppid3.log
-nohup ./warp-plus4 --bind 127.0.0.1:54325 --cfon --country US >/dev/null 2>&1 & echo "$!" > ./wppid4.log
-nohup ./warp-plus5 --bind 127.0.0.1:54326 --cfon --country SG >/dev/null 2>&1 & echo "$!" > ./wppid5.log
-
+./warp-plus1 --bind 127.0.0.1:54322 --cfon --country JP & echo "$!" > ./wppid1.log
+./warp-plus2 --bind 127.0.0.1:54323 --cfon --country AU & echo "$!" > ./wppid2.log
+./warp-plus3 --bind 127.0.0.1:54324 --cfon --country GB & echo "$!" > ./wppid3.log
+./warp-plus4 --bind 127.0.0.1:54325 --cfon --country US & echo "$!" > ./wppid4.log
+./warp-plus5 --bind 127.0.0.1:54326 --cfon --country SG & echo "$!" > ./wppid5.log
 
 nohup ./sing-box run  >/dev/null 2>&1 & echo "$!" > ./sbpid.log
-nohup ./warp-plus --bind 127.0.0.1:54322 --cfon --country JP >/dev/null 2>&1 & echo "$!" > ./wppid1.log
-nohup ./warp-plus --bind 127.0.0.1:54323 --cfon --country AU >/dev/null 2>&1 & echo "$!" > ./wppid2.log
-nohup ./warp-plus --bind 127.0.0.1:54324 --cfon --country GB >/dev/null 2>&1 & echo "$!" > ./wppid3.log
-nohup ./warp-plus --bind 127.0.0.1:54325 --cfon --country US >/dev/null 2>&1 & echo "$!" > ./wppid4.log
-nohup ./warp-plus --bind 127.0.0.1:54326 --cfon --country SG >/dev/null 2>&1 & echo "$!" > ./wppid5.log
+nohup ./warp-plus --bind 127.0.0.1:54322 --cfon --country JP & echo "$!" > ./wppid1.log
+nohup ./warp-plus --bind 127.0.0.1:54323 --cfon --country AU & echo "$!" > ./wppid2.log
+nohup ./warp-plus --bind 127.0.0.1:54324 --cfon --country GB & echo "$!" > ./wppid3.log
+nohup ./warp-plus --bind 127.0.0.1:54325 --cfon --country US & echo "$!" > ./wppid4.log
+nohup ./warp-plus --bind 127.0.0.1:54326 --cfon --country SG & echo "$!" > ./wppid5.log
 
 
