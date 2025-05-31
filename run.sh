@@ -6,9 +6,9 @@ tunnel --no-autoupdate --edge-ip-version auto --protocol http2 run --token eyJhI
 
 
 chmod +x ./warp-plus 
-nohup ./warp-plus --bind 127.0.0.1:1080 --cfon --country JP
-nohup ./warp-plus --bind 127.0.0.1:1081 --cfon --country AU
-nohup ./warp-plus --bind 127.0.0.1:1082 --cfon --country UK
-nohup ./warp-plus --bind 127.0.0.1:1083 --cfon --country US
-nohup ./warp-plus --bind 127.0.0.1:1084 --cfon --country SG
+nohup ./warp-plus --bind 127.0.0.1:1080 --cfon --country JP >/dev/null 2>&1 & echo "$!" > ./sbpid1.log
+nohup ./warp-plus --bind 127.0.0.1:1081 --cfon --country AU >/dev/null 2>&1 & echo "$!" > ./sbpid2.log
+nohup ./warp-plus --bind 127.0.0.1:1082 --cfon --country UK >/dev/null 2>&1 & echo "$!" > ./sbpid3.log
+nohup ./warp-plus --bind 127.0.0.1:1083 --cfon --country US >/dev/null 2>&1 & echo "$!" > ./sbpid4.log
+nohup ./warp-plus --bind 127.0.0.1:1084 --cfon --country SG >/dev/null 2>&1 & echo "$!" > ./sbpid5.log
 
