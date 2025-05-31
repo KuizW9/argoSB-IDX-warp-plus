@@ -15,7 +15,7 @@ cp ./warp-plus ./warp-plus5
 
 nohup ./warp-plus1 --bind 127.0.0.1:1080 --cfon --country JP >/dev/null 2>&1 & echo "$!" > ./sbpid1.log
 nohup ./warp-plus2 --bind 127.0.0.1:1081 --cfon --country AU >/dev/null 2>&1 & echo "$!" > ./sbpid2.log
-nohup ./warp-plus3 --bind 127.0.0.1:1082 --cfon --country UK >/dev/null 2>&1 & echo "$!" > ./sbpid3.log
+nohup ./warp-plus3 --bind 127.0.0.1:1082 --cfon --country GB >/dev/null 2>&1 & echo "$!" > ./sbpid3.log
 nohup ./warp-plus4 --bind 127.0.0.1:1083 --cfon --country US >/dev/null 2>&1 & echo "$!" > ./sbpid4.log
 nohup ./warp-plus5 --bind 127.0.0.1:1084 --cfon --country SG >/dev/null 2>&1 & echo "$!" > ./sbpid5.log
 
