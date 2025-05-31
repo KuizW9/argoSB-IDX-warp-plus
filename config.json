@@ -1,0 +1,125 @@
+{
+    "log": {
+      "disabled": false,
+      "level": "info",
+      "timestamp": true
+    },
+    "route": {
+      "auto_detect_interface": true, 
+      "rules": [
+        {
+          "auth_user": "vmess-direct",
+          "action": "route",
+          "outbound": "direct"
+        },
+        {
+          "auth_user": "vmess-warp",
+          "action": "route",
+          "outbound": "warp-jp"
+        }
+      ]
+    },
+    "inbounds": [
+      {
+        "type": "vmess",
+        "tag": "vmess-sb",
+        "listen": "::",
+        "listen_port": 54321,
+        "users": [
+          {
+            "name":"vmess-direct",
+            "uuid": "78cc3f99-77ac-49fc-a790-fa1ef19fe0bf",
+            "alterId": 0
+          },
+          {
+            "name":"vmess-warp",
+            "uuid": "a8cc3f99-77ac-49fc-a790-fa1ef19fe0bf",
+            "alterId": 0
+          },
+          {
+            "name":"vmess-uk",
+            "uuid": "b8cc3f99-77ac-49fc-a790-fa1ef19fe0bf",
+            "alterId": 0
+          },
+          {
+            "name":"vmess-us",
+            "uuid": "c8cc3f99-77ac-49fc-a790-fa1ef19fe0bf",
+            "alterId": 0
+          },
+          {
+            "name":"vmess-sg",
+            "uuid": "d8cc3f99-77ac-49fc-a790-fa1ef19fe0bf",
+            "alterId": 0
+          },
+          {
+            "name":"vmess-jp",
+            "uuid": "e8cc3f99-77ac-49fc-a790-fa1ef19fe0bf",
+            "alterId": 0
+          }
+        ],
+        "transport": {
+          "type": "ws",
+          "path": "@rudaoweishen",
+          "max_early_data": 2048,
+          "early_data_header_name": "Sec-WebSocket-Protocol"    
+        },
+        "tls": {
+          "enabled": false,
+          "server_name": "www.bing.com",
+          "certificate_path": "./cert.pem",
+          "key_path": "./private.key"
+        }
+      }
+    ],
+    "outbounds": [
+      {
+        "type": "direct",
+        "tag": "direct"
+      },
+      {
+        "type": "socks",
+        "tag": "kuiz-socks",
+        "server": "alvgw.xyz",
+        "server_port": 8095,
+        "version": "5",
+        "username": "",
+        "password": ""
+      },
+      {
+        "type": "socks",
+        "tag":"warp-jp",
+        "server": "127.0.0.1",
+        "server_port": 1080,
+        "version": "5",
+        "username": "",
+        "password": ""
+      },
+      {
+        "type": "socks",
+        "tag":"warp-au",
+        "server": "127.0.0.1",
+        "server_port": 1081,
+        "version": "5",
+        "username": "",
+        "password": ""
+      },
+      {
+        "type": "socks",
+        "tag": "warp-uk",
+        "server": "127.0.0.1",
+        "server_port": 1082,
+        "version": "5",
+        "username": "",
+        "password": ""
+      },
+      {
+        "type": "socks",
+        "tag": "warp-us",
+        "server": "127.0.0.1",
+        "server_port": 1083,
+        "version": "5",
+        "username": "",
+        "password": ""
+      }
+    ]
+  }
