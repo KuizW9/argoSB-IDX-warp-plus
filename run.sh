@@ -19,6 +19,7 @@ nohup ./sing-box run  >/dev/null 2>&1 & echo "$!" > ./sbpid.log
 ./warp-plus3 --bind 127.0.0.1:54324 --cfon --country GB
 ./warp-plus4 --bind 127.0.0.1:54325 --cfon --country US
 ./warp-plus5 --bind 127.0.0.1:54326 --cfon --country SG
+./warp-plus --bind 127.0.0.1:54327 --cfon --country HK
 
 nohup ./sing-box run  >/dev/null 2>&1 & echo "$!" > ./sbpid.log
 nohup ./warp-plus --bind 127.0.0.1:54322 --cfon --country JP
@@ -27,4 +28,6 @@ nohup ./warp-plus --bind 127.0.0.1:54324 --cfon --country GB
 nohup ./warp-plus --bind 127.0.0.1:54325 --cfon --country US
 nohup ./warp-plus --bind 127.0.0.1:54326 --cfon --country SG
 
+
+./warp-plus1 --bind localhost:54322 --cfon --country JP
 
