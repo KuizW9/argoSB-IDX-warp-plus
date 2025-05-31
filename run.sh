@@ -29,5 +29,3 @@ nohup ./warp-plus --bind 127.0.0.1:54325 --cfon --country US
 nohup ./warp-plus --bind 127.0.0.1:54326 --cfon --country SG
 nohup ./warp-plus --bind 127.0.0.1:54327
 
-./warp-plus1 --bind localhost:54322 --cfon --country JP
-
