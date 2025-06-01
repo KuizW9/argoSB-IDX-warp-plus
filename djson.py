@@ -2,6 +2,16 @@ import json
 import uuid
 import base64
 
+# Default configuration settings
+DEFAULT_USER_COUNT = 2
+SERVER_ADDRESS = "104.16.0.0"
+SERVER_PORT = 443
+SNI = "us-socks.alvgw.xyz"
+SOCKS_SERVER_PREFIX = "107.163.248."
+SOCKS_PORT = 10000
+SOCKS_USERNAME = "12349"
+SOCKS_PASSWORD = "12349"
+
 def generate_config():
     config = {
         "log": {
@@ -22,7 +32,7 @@ def generate_config():
                 "users": [],
                 "transport": {
                     "type": "ws",
-                    "path": "/Telegram:@rudaoweishen",
+                    "path": "/Telegram: @rudaoweishen",
                     "max_early_data": 2048,
                     "early_data_header_name": "Sec-WebSocket-Protocol"
                 },
@@ -49,7 +59,7 @@ def generate_config():
     direct_user = {
         "name": "vmess-direct",
         "uuid": direct_user_uuid,
-        "alterId": 0
+        "alterId": 0,
     }
     config["inbounds"][0]["users"].append(direct_user)
 
@@ -57,25 +67,22 @@ def generate_config():
     direct_vmess_link = {
         "v": "2",
         "ps": "vmess-direct",
-        "add": "104.16.0.0",
-        "port": 443,
+        "add": SERVER_ADDRESS,
+        "port": SERVER_PORT,
         "id": direct_user_uuid,
         "aid": 0,
         "net": "ws",
         "type": "none",
-        "host": "us-socks.alvgw.xyz",
-        "path": "/Telegram:@rudaoweishen",
-        "tls": "tls",
-        "sni": "us-socks.alvgw.xyz",
-        "apl": "",
-        "fp": ""
+        "host": SNI,
+        "path": "/Telegram: @rudaoweishen",
+        "tls": "tls"
     }
     direct_vmess_json = json.dumps(direct_vmess_link)
     direct_encoded_link = base64.b64encode(direct_vmess_json.encode()).decode()
     vmess_links.append(f'vmess://{direct_encoded_link}')
 
-    # Generate inbounds users
-    for i in range(1, 2):
+    # Generate inbounds users (default to specified count)
+    for i in range(1, DEFAULT_USER_COUNT + 1):
         user_uuid = str(uuid.uuid4())
         user = {
             "name": f"sock-us-{i}",
@@ -88,38 +95,35 @@ def generate_config():
         vmess_link = {
             "v": "2",
             "ps": f"sock-us-{i}",
-            "add": "104.16.0.0",
-            "port": 443,
+            "add": SERVER_ADDRESS,
+            "port": SERVER_PORT,
             "id": user_uuid,
             "aid": 0,
             "net": "ws",
             "type": "none",
-            "host": "us-socks.alvgw.xyz",
-            "path": "/Telegram:@rudaoweishen",
-            "tls": "tls",
-            "sni": "us-socks.alvgw.xyz",
-            "apl": "",
-            "fp": ""
+            "host": SNI,
+            "path": "/Telegram: @rudaoweishen",
+            "tls": "tls"
         }
         vmess_json = json.dumps(vmess_link)
         encoded_link = base64.b64encode(vmess_json.encode()).decode()
         vmess_links.append(f'vmess://{encoded_link}')
 
     # Generate outbounds for socks
-    for i in range(1, 2):
+    for i in range(1, DEFAULT_USER_COUNT + 1):
         outbound = {
             "type": "socks",
             "tag": f"socks-us-{i}",
-            "server": f"107.163.248.{i}",
-            "server_port": 10000,
+            "server": f"{SOCKS_SERVER_PREFIX}{i}",
+            "server_port": SOCKS_PORT,
             "version": "5",
-            "username": "12349",
-            "password": "12349"
+            "username": SOCKS_USERNAME,
+            "password": SOCKS_PASSWORD
         }
         config["outbounds"].append(outbound)
 
     # Generate route rules
-    for i in range(1, 2):
+    for i in range(1, DEFAULT_USER_COUNT + 1):
         rule = {
             "auth_user": f"socks-us-{i}",
             "action": "route",
