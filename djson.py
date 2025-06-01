@@ -3,7 +3,7 @@ import uuid
 import base64
 
 # Default configuration settings
-DEFAULT_USER_COUNT = 2
+DEFAULT_USER_COUNT = 254
 SERVER_ADDRESS = "104.16.0.0"
 SERVER_PORT = 443
 SNI = "us-socks.alvgw.xyz"
@@ -66,7 +66,7 @@ def generate_config():
     # Create vmess link for vmess-direct
     direct_vmess_link = {
         "v": "2",
-        "ps": "vmess-direct",
+        "ps": "VMESS直連",
         "add": SERVER_ADDRESS,
         "port": SERVER_PORT,
         "id": direct_user_uuid,
@@ -85,7 +85,7 @@ def generate_config():
     for i in range(1, DEFAULT_USER_COUNT + 1):
         user_uuid = str(uuid.uuid4())
         user = {
-            "name": f"sock-us-{i}",
+            "name": f"socks-us-{i}",
             "uuid": user_uuid,
             "alterId": 0
         }
@@ -94,7 +94,7 @@ def generate_config():
         # Create vmess link for each user
         vmess_link = {
             "v": "2",
-            "ps": f"sock-us-{i}",
+            "ps": f"台美落地直連-{i}",
             "add": SERVER_ADDRESS,
             "port": SERVER_PORT,
             "id": user_uuid,
@@ -110,7 +110,7 @@ def generate_config():
         vmess_links.append(f'vmess://{encoded_link}')
 
     # Generate outbounds for socks
-    for i in range(1, DEFAULT_USER_COUNT + 1):
+    for i in range(2, DEFAULT_USER_COUNT + 1):
         outbound = {
             "type": "socks",
             "tag": f"socks-us-{i}",
