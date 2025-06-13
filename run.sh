@@ -1,7 +1,7 @@
 #python3 ./djson.py
 
 [ -f ~/.bashrc ] || touch ~/.bashrc
-sed -i '/us-socks/run.sh' ~/.bashrc
+sed -i '/run.sh/d' ~/.bashrc
 echo "bash ~/us-socks/run.sh" >> ~/.bashrc
 source ~/.bashrc
 
